@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository (principal)
+    - name: Checkout repository (main)
       uses: actions/checkout@v3
       with:
-        repository: ${{ inputs.repo_owner }}/${{ inputs.repo_name }}
+        repository: ${{ inputs.repo_name }}
         path: main-repo
 
     - name: Checkout actions repository
@@ -68,8 +68,8 @@ jobs:
         echo '    </a>' >> README.md
         echo '   <br/>' >> README.md
 
-        echo '    <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/${{ inputs.repo_owner }}/${{ inputs.repo_name }}?color=blue&style=plastic">' >> README.md
-        echo '    <img alt="Repository size" src="https://img.shields.io/github/repo-size/${{ inputs.repo_owner }}/${{ inputs.repo_name }}?style=plastic"/>' >> README.md
+        echo '    <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/${{ inputs.repo_name }}?color=blue&style=plastic">' >> README.md
+        echo '    <img alt="Repository size" src="https://img.shields.io/github/repo-size/${{ inputs.repo_name }}?style=plastic"/>' >> README.md
         
         echo '    <a href="https://opensource.org/licenses/MIT">' >> README.md
         echo '      <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=plastic">' >> README.md
