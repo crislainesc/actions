@@ -1,19 +1,26 @@
-name: 'Generate README'
-description: 'Action to generate README.md'
-inputs:
-  github_token:
-    description: 'GitHub token'
-    required: true
-  repo_name:
-    description: 'Repository name'
-    required: true
-  repo_owner:
-    description: 'Repository owner'
-    required: true
+name: Generate README
 
-runs:
-  using: 'composite'
-  steps:
+on:
+  workflow_call:
+    inputs:
+      github_token:
+        description: 'GitHub token'
+        required: true
+        type: string
+      repo_name:
+        description: 'Repository name'
+        required: true
+        type: string
+      repo_owner:
+        description: 'Repository owner'
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
