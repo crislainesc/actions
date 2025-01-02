@@ -110,6 +110,12 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git pull origin main
+
+          if git diff --quiet README.md; then
+            echo "No changes detected in README.md. Skipping commit."
+            exit 0
+          fi
+
           git add README.md
           git commit -m "Update README"
           git push origin main
